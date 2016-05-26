@@ -38,6 +38,13 @@ $(function() {
                     expect(allFeeds.url.length).not.toBe(0);
                 });
             })
+            allFeeds.forEach(function(allFeeds) {
+                it('has a name defined', function() {
+                    expect(allFeeds.name).toBeDefined();
+                    expect(allFeeds.name.length).not.toBe(0);
+                });
+            })
+
         });
 
         /* TODO: Write a test that loops through each feed
