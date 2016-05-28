@@ -103,6 +103,12 @@ $(function() {
 
     describe ('Initial Entries', function() {
 
+        beforeEach(function(done) {
+            setTimeout(function() {
+                value = 0;
+                done();
+            }, 1);
+        });
 
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
