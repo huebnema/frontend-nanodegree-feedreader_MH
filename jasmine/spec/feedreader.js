@@ -83,8 +83,19 @@ $(function() {
          * should have two expectations: does the menu display when
          * clicked and does it hide when clicked again.
          */
-        
-        
+
+        //Reference for this test: https://discussions.udacity.com/t/testing-the-dom-in-jasmine/8438
+        it('displays when clicked', function() {
+            $(".menu-icon-link").trigger('click');
+           expect($("body").hasClass("menu-hidden")).toBe(false);
+        });
+
+        //Set the false to true to test that the menu hides when clicked
+        it('hides when clicked again', function() {
+            $(".menu-icon-link").trigger('click');
+            expect($("body").hasClass("menu-hidden")).toBe(true);
+        });
+
     });
         
 
