@@ -111,6 +111,8 @@ $(function() {
 
     describe ('Initial Entries', function() {
 
+        // This makes the test work with asynchronous functions.
+        // 'Done' lets Jasmine know when to go on to the next step.
         beforeEach(function(done) {
             loadFeed(0,done);
         });
@@ -127,6 +129,18 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        // Reference:  https://discussions.udacity.com/t/p6-new-feed-selection-test-question-problem/15562/14
+
+     describe ('New Feed Selection', function() {
+
+         // This makes the test work with asynchronous functions.
+         beforeEach(function(done) {
+             loadFeed(0,done);
+         });
+
+         it('changes the content that is loaded')
+
+     });
 
     });
 });
