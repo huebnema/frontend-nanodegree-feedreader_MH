@@ -132,7 +132,10 @@ $(function() {
         // Reference:  https://discussions.udacity.com/t/p6-new-feed-selection-test-question-problem/15562/14
 
      describe ('New Feed Selection', function() {
+
+         // Set this variable when the test starts so we can see if the content changes
          var feedContents;
+
          // This makes the test work with asynchronous functions.
          beforeEach(function(done) {
              loadFeed(0,done);
