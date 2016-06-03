@@ -132,14 +132,17 @@ $(function() {
         // Reference:  https://discussions.udacity.com/t/p6-new-feed-selection-test-question-problem/15562/14
 
      describe ('New Feed Selection', function() {
-
+         var feedContents;
          // This makes the test work with asynchronous functions.
          beforeEach(function(done) {
              loadFeed(0,done);
          });
 
-         it('changes the content that is loaded')
-
+         it('changes the content that is loaded', function(done){
+             loadFeed(0);
+             expect($('.feed').html()).not.toEqual(feedContents);
+             done();
+         })
      });
 
     });
