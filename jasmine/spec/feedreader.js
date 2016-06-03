@@ -78,7 +78,7 @@ $(function() {
 
         //Reference for this test: https://discussions.udacity.com/t/testing-the-dom-in-jasmine/8438
         it('displays when clicked', function() {
-            $('.menu-icon-link'').trigger('click');
+            $('.menu-icon-link').trigger('click');
            expect($('body').hasClass('menu-hidden')).toBe(false);
         });
 
@@ -106,7 +106,7 @@ $(function() {
         });
 
         it('has at least one entry in the feed container', function(done) {
-            expect($('.entries').length > 0).toBe(false);
+            expect($('.feed').length).toBeGreaterThan(0);
             done();
         });
 
