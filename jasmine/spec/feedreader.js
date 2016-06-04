@@ -10,9 +10,9 @@
  */
 $(function() {
     /* This is our first test suite - a test suite just contains
-    * a related set of tests. This suite is all about the RSS
-    * feeds definitions, the allFeeds variable in our application.
-    */
+     * a related set of tests. This suite is all about the RSS
+     * feeds definitions, the allFeeds variable in our application.
+     */
     describe('RSS Feeds', function() {
         /* This is our first test - it tests to make sure that the
          * allFeeds variable has been defined and that it is not
@@ -38,7 +38,7 @@ $(function() {
                 });
             });
 
-            /* TODO: Write a test that loops through each feed
+            /*This test loops through each feed
              * in the allFeeds object and ensures it has a name defined
              * and that the name is not empty.
              */
@@ -56,13 +56,13 @@ $(function() {
     });
 
 
-    
+
     describe ('The menu', function() {
 
         /* This test ensures the menu element is
          * hidden by default.
          */
-        
+
         //Formatting help from:  https://discussions.udacity.com/t/the-menu-suite-for-hidden-menu-is-not-working/46867/5
         // On page load, body class='menu-hidden'
 
@@ -79,7 +79,7 @@ $(function() {
         //Reference for this test: https://discussions.udacity.com/t/testing-the-dom-in-jasmine/8438
         it('displays when clicked', function() {
             $('.menu-icon-link').trigger('click');
-           expect($('body').hasClass('menu-hidden')).toBe(false);
+            expect($('body').hasClass('menu-hidden')).toBe(false);
         });
 
         //Set the false to true to test that the menu hides when clicked
@@ -89,13 +89,13 @@ $(function() {
         });
 
     });
-        
 
-        /* This test ensures when the loadFeed
-         * function is called and completes its work, there is at least
-         * a single .entry element within the .feed container.
-         */
-        // Reference:  https://discussions.udacity.com/t/step-13-help-initial-entries/14839/8
+
+    /* This test ensures when the loadFeed
+     * function is called and completes its work, there is at least
+     * a single .entry element within the .feed container.
+     */
+    // Reference:  https://discussions.udacity.com/t/step-13-help-initial-entries/14839/8
 
     describe ('Initial Entries', function() {
 
@@ -110,27 +110,32 @@ $(function() {
             done();
         });
 
-        /* This test ensures when a new feed is loaded
+        /* This test ensures that when a new feed is loaded
          * by the loadFeed function that the content actually changes.
          */
         // Reference:  https://discussions.udacity.com/t/p6-new-feed-selection-test-question-problem/15562/14
+        // Additional reference:  https://discussions.udacity.com/t/new-feed-selection-question/16274/13
 
-     describe ('New Feed Selection', function() {
+        describe ('New Feed Selection', function() {
 
-         // Set this variable when the test starts so we can see if the content changes
-         var feedContents;
+            // Set two variables when the test begins - one for the current feed and one for a new feed
+            var feed0,
+                feed1;
 
-         // This makes the test work with asynchronous functions.
-         beforeEach(function(done) {
-             loadFeed(0,done);
-         });
+            // This makes the test work with asynchronous functions. 'Done' tells jasmine when to proceed on to the next step
+            beforeEach(function(done) {
+                loadFeed(1, function() {
+                    feed0 = $('.feed').html();
+                    done();
+                });
+            });
 
-         it('changes the content that is loaded', function(done){
-             loadFeed(0);
-             expect($('.feed').html()).not.toEqual(feedContents);
-             done();
-         });
-     });
-
+            it('changes the content that is loaded', function(done){
+                loadFeed(0, function() {
+                    expect($('.feed').html()).not.toEqual(feed0);
+                    done();
+                });
+            });
+        });
     });
 });
