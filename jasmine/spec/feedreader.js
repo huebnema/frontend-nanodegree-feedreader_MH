@@ -106,7 +106,7 @@ $(function() {
         });
 
         it('has at least one entry in the feed container', function(done) {
-            expect($('.feed').length).toBeGreaterThan(0);
+            expect($('.feed .entry').length).toBeGreaterThan(0);
             done();
         });
 
